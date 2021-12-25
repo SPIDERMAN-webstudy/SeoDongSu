@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="itf-8">
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <style>
+            /* @media (max-width:600px){
+                body{
+                    background-color: green;
+                }
+            }
+            @media (max-width:500px){
+                body{
+                    background-color: red;
+                }
+            }
+            @media (min-width:601px){
+                body{
+                    background-color: blue;
+                }
+            } */
+            .container{
+                display: flex;
+                flex-direction: column;
+            }
+            header{
+                border-top:1px solid gray;
+                border-bottom:1px solid gray;
+                padding-left:20px; 
+            }
+            footer{
+                border-bottom:1px solid gray;
+                border-top:1px solid gray;
+                padding:20px;
+                text-align:center;
+            }
+            .content{
+                display: flex;
+            }
+            .content nav{
+                border-right:1px solid gray;
+            }
+            .content aside{
+                border-left:1px solid gray;
+            }
+            nav, aside{
+                flex-basis:150px;
+                flex-shrink:0;
+                flex-grow: 1;
+            }
+            main{
+                flex-basis:100px;
+                padding:10px;
+                flex-grow: 5;
+            }
+            @media(max-width:500px){
+                .content{
+                    flex-direction: column;
+                    flex-basis: auto;
+                }
+                .content nav{
+                    border:none;
+                    flex-basis:auto;
+                }
+                .content aside{
+                    border:none;
+                    flex-basis:none;
+                }
+                main{
+                    order:0;
+                }
+                nav{
+                    order:1;
+                }
+                aside{
+                    order:2;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>메이플스토리</h1>
+            </header>
+            <section class = "content">
+                <nav>
+                    <ol>
+                        <li>adad</li>
+                        <li>sdsd</li>
+                        <li>vccc</li>
+                    </ol>
+                </nav>
+                <main>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod earum, voluptatibus voluptas impedit accusantium nihil eaque sunt repellendus expedita libero, sit nulla ullam harum autem alias, obcaecati quaerat quis! Veritatis.
+                </main>
+                <aside>
+                    dadad
+                </aside>
+            </section>
+            <footer>
+                <h3>안녕</h3>
+            </footer>
+        </div>
+    </body>
+</html>
