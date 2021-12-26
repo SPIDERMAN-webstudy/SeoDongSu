@@ -1,152 +1,127 @@
 <html>
+<head>
     <style>
-        li{
-            text-decoration:underline;
+        #title{
+            text-align:center;
+            border-bottom:1px solid black;
+            height:50px;
+            background-image: url("https://kr-cdn.maple.gg/images/images/maplegg_logo2_white.svg");
         }
-        #select{
-            font-size:17px;
+        h3{
+            padding-left:50px;
         }
-        .title{
-            text-decoration: underline;
-        }
-        #select2>li{
-            border:1px solid black;
-            color: red;
-        }
-        input:focus{
-            background-color: black;
-            color:white;
-        }
-        a:visited{
-            color: violet;
-        }
-        #px{font-size:16px;}
-        #rem{font-size:1rem;}
-        #title1{
-            text-align: center;
-            font-family:arial;
-        }
-        p{
-            border:0.3rem solid black;
-            width: 50rem;
-        }
-        *{
-            box-sizing:border-box;
-        }
-        #small{
-            border:5px solid black;
-        }
-        #question{
-            border:5px solid black;
-        }
-        #mushroom{
-            display:block;
-        }
-        div{
-            border: 5px solid tomato;
-            margin: 10px;
-        }
-        #parent{
-            position: absolute;
-            border: 5px solid tomato;
-            width: 100px;
-            left:0px;
-            top: 0px;
-        }
-        #me{
-            position: absolute;
-            left:100px;
-            top:100px;
+        main{
+            flex-grow:5;
+            padding:10px;
         }
         .container{
-            background-color:powderblue;
-            display:flex;
+            display: flex;
             flex-direction:column;
         }
-        header{
-            border-bottom:1px solid gray;
+        .container2{
+            display:flex;
+        }
+        nav{
+            border-right:1px solid black;
+            padding: 20px;
+        }
+        aside{
+            border-left:1px solid black;
+            padding: 20px;
+        }
+        nav, aside{
+            flex-grow:3;
         }
         footer{
-            border-top:1px solid gray;
+            height:50px;
+            text-align:center;
+            padding-top:20px;
+            border-top:1px solid black;
         }
-        .content{
-            display: flex;
-        }
-        .item{
-            background-color: tomato;
-            color:white;
-            border: 1px solid white;
-        }
-        
+        @media(max-width:800px){
+                .content{
+                    flex-direction: column;
+                    flex-basis: auto;
+                }
+                .content nav{
+                    border:none;
+                    flex-basis:auto;
+                }
+                .content aside{
+                    border:none;
+                    flex-basis:none;
+                }
+                main{
+                    flex-shrink:0;
+                    order:0;
+                }
+                nav{
+                    order:1;
+                }
+                aside{
+                    order:2;
+                }
+            }
     </style>
-<head>
-    <ul>
-        <h1 id="title1"><p style="color: Red;">MapleStory</p></h1>
-    </ul>
-    <h4>
-        캐릭터명 검색
-    </h4>
-    <input>
-    <ul>
-    <img src id = "mushroom" = "data:image/jpeg;base64,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">
-    <li id = "select"><a href = "https://maplestory.nexon.com/Ranking/World/Total">캐릭터 랭킹</a></li>
-    <ul id = "select2">
-        <li><a href = "https://maplestory.nexon.com/News/Update">업데이트 정보</a><br></li>
-    </ul>
-        <li><a href = "https://maplestory.nexon.com/News/Event">이벤트</a><br></li>
-    </ul>
 </head>
 <body>
     <div class="container">
         <header>
-         <h1>메이플스토리</h1>
-      </header>
-     <section class = "content">
-        <nav>
-            <ul>
-                <li>html</li>
-                <li>css</li>
-                <li>java</li>
-            </ul>
-        </nav>
-        <main>
-            메이플은 건강에 이롭습니다.
-        </main>
-        <aside>
-            AD
-        </aside>
-     </section>
-     <footer>
-        <a href="aaaa">홈페이지</a>
-      </footer>
+            <h2 id="title">메이플 세상</h2>
+        </header>
+        <section class = "container2">
+            <nav>
+                <h3>
+                    메이플 핫 영상
+                </h3>
+                <ul>
+                    <li><iframe width="280" height="160" src="https://www.youtube.com/embed/JCcExXxcVfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+                    <li><iframe width="280" height="160" src="https://www.youtube.com/embed/yjh2yZzGjpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+                    <li><iframe width="280" height="160" src="https://www.youtube.com/embed/5EdkeByg3X4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+                    <li><iframe width="280" height="160" src="https://www.youtube.com/embed/fCqcY0C5H9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+                    <li><iframe width="280" height="160" src="https://www.youtube.com/embed/gt3sRgiGvKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+                </ul>
+            </nav>
+            <main>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci porro saepe ut iste debitis deleniti vitae error, aliquid iusto. Quam voluptatibus consequuntur voluptate odit ab aperiam iste quod illo sequi. Esse itaque eligendi laboriosam qui incidunt nihil at, ipsa exercitationem, cumque nulla magni voluptate, pariatur impedit aspernatur dolore nemo ipsum rem ratione quaerat et doloremque obcaecati praesentium labore illo? Officiis tempore commodi nemo odit? Nam temporibus ducimus nisi odio officia, iusto quisquam facilis explicabo sed, quam perferendis expedita quia illum incidunt optio pariatur fugit repellendus at, velit id. Perspiciatis rem praesentium placeat delectus consequuntur esse fugiat! Voluptates neque officiis alias adipisci culpa atque esse, unde, excepturi corporis nobis ullam distinctio doloribus amet ipsum deserunt consequatur. Eos corrupti quas iste distinctio suscipit? Laudantium nam sunt dignissimos, harum doloremque adipisci suscipit quasi culpa eos commodi possimus id deleniti fuga repellat eum repudiandae voluptates debitis praesentium sapiente! Pariatur esse ad cum necessitatibus doloribus quidem autem, ea tempore culpa! Excepturi, totam dolore maiores quos repellendus quo animi sit quia, non libero reprehenderit recusandae pariatur perferendis odit incidunt commodi dignissimos exercitationem aspernatur ad repudiandae quam autem aliquam nisi quae? Nostrum repellat atque quas perferendis accusantium eius maiores suscipit fuga velit in quis debitis necessitatibus, illum assumenda aspernatur expedita impedit nesciunt eveniet! Pariatur amet expedita veritatis dolorem eum quo nostrum molestias obcaecati at excepturi! Quas quisquam illo aperiam culpa magnam exercitationem, perferendis quo accusamus accusantium autem consectetur? Voluptatum veniam deserunt possimus ad maxime magnam distinctio repellat quos! Accusamus magnam ad dignissimos recusandae! Repudiandae blanditiis beatae odit voluptatum quisquam porro enim qui cupiditate repellat, aspernatur ab molestiae quo minima aperiam ex consequatur minus esse ea labore sunt est, tempora maxime! Eum rerum molestias voluptatibus ut possimus enim minima mollitia ipsum ipsa sequi sunt deleniti, adipisci doloribus rem nam ab facere a, molestiae commodi obcaecati saepe repellendus temporibus officiis. Quidem expedita numquam laborum reprehenderit similique veritatis suscipit veniam dolorem? Aliquam quod ab, eius veritatis error nostrum corrupti quia explicabo sapiente. Ipsam recusandae culpa temporibus repellat cumque rerum tempora non accusantium, sed et ducimus illum consequuntur aliquam ut itaque ipsum aspernatur corporis enim veniam explicabo perferendis! Maiores vero, culpa vitae non eveniet commodi, assumenda corporis maxime voluptate minima explicabo? Illum odio aut eligendi voluptatem alias iure deleniti, molestiae delectus sed, consequatur, quis omnis ab accusamus cupiditate doloremque dolores at laboriosam ea. Vitae eveniet, culpa omnis, odit cupiditate officia error reiciendis ducimus rem dicta quis quidem magni a explicabo eaque placeat facere quod delectus. Veniam, facere consequatur perspiciatis delectus exercitationem magnam iure deleniti unde, blanditiis optio odit error necessitatibus dolor maxime recusandae ut ducimus ipsum praesentium eum esse omnis? Ea molestiae, omnis eaque hic exercitationem repudiandae deserunt quibusdam esse quo molestias voluptatibus rem, sequi nulla consequatur culpa cumque minima quaerat possimus nam quae. Culpa saepe deserunt tempore sequi asperiores. Alias in consectetur illum corrupti ratione consequatur at minima harum quibusdam iusto officia veniam adipisci eligendi impedit omnis quas, doloribus odit sequi obcaecati voluptas fugit dolor iure autem. Architecto eveniet iste rem. Reiciendis natus incidunt ipsa facere recusandae atque dolore, vel deserunt quis delectus repudiandae nesciunt illum esse aspernatur explicabo! Vero commodi dolores alias, consequatur, molestias quibusdam exercitationem reprehenderit explicabo non dicta quis inventore. Perferendis necessitatibus pariatur molestiae eligendi temporibus? Doloremque, repellat tenetur aliquam impedit eaque voluptatum, quibusdam quaerat inventore at esse iste culpa ipsum cumque, fugiat commodi voluptatibus minima quae autem necessitatibus omnis? Molestiae saepe rem enim quidem a velit magni ea nesciunt facilis, eos doloremque consequatur sunt, quas quis provident exercitationem eveniet dolorem magnam at repellendus. Soluta accusamus vitae quos officiis iste quas earum harum, illum dolores officia at! Qui quidem nulla necessitatibus doloremque repudiandae vitae quis placeat facilis.
+            </main>
+            <aside>
+                <youtuber_rank>
+                    <div class="title2">유튜버 랭킹</div>
+                    <ol>
+                        <li><a href="https://www.youtube.com/user/skswhdkgo">글자네 YouTube</a></li>
+                        <li><a href="https://www.youtube.com/user/bjpange">팡이요</a></li>
+                        <li><a href="https://www.youtube.com/results?search_query=%EB%A7%91%EC%9D%8C">메이플스토리맑음</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCYaFxuv97e0qSx1MU9FvhGg">캡틴김수호</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCmRL_430mSNs-6M6tcGXFCw">진격캐넌</a></li>
+                    </ol>
+                </youtuber>
+                <mureung_rank>
+                    <div class="title2">무릉 순위</div>
+                    <ol>
+                        <li><a href="https://maple.gg/u/Ring">Ring</a></li>
+                        <li><a href="https://maple.gg/u/%EC%AB%91%EC%9E%89%EB%84%A4">쫑잉네</a></li>
+                        <li><a href="https://maple.gg/u/%EC%B4%88%EC%BD%94%EB%B9%B5%EB%82%B4%EA%BA%BC%EC%95%BC">초코빵내꺼야</a></li>
+                        <li><a href="https://maple.gg/u/%EA%B9%80%EA%B1%B4%ED%9D%AC">김건희</a></li>
+                        <li><a href="https://maple.gg/u/%EC%84%B1%EA%B5%AC%EC%96%8C">성구얌</a></li>
+                    </ol>
+                </mureung>
+                <job_rank>
+                    <div class="title2">직업 랭킹</div>
+                    <ol>
+                        <li>아델(13.15%)</li>
+                        <li>듀얼블레이더(6.82%)</li>
+                        <li>패스파인더(5.73%)</li>
+                        <li>아크메이지(썬,콜)(4.20%)</li>
+                        <li>아크(4.06%)</li>
+                    </ol>
+                </job>
+            </aside>
+        </section>
+        <footer>
+            항상 열심히 일해주시는 메이플 직원분들 힘내세요~
+        </footer>
     </div>
-    <header>
-        <h1>메이플스토리</h1>
-    
-    <div id = "px">PX</div>
-    <div id="ren">REM</div>
-    <p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9xlmRNBLqpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </p>
-    <p>
-        메이플 쇼케이스
-    </p>
-    <a href = "이벤트.html">이벤트</a>
-    <br><h2 calss="title">메이플 뉴스</h2><br>
-    <h3>이번 겨울 방학 대규모 업데이트에 대하여..</h1>
-        <div id="small">메이플 코디</div>
-        <div id="question">건의사항</div>
-        <div id="other">other</div>
-        <div id="parent">
-            parent;
-            <div id="me">me</div>
-        </div>
-        <div class="container">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
-            <div class="item">4</div>
-            <div class="item">5</div>
-        </div>
 </body>
+
 </html>
