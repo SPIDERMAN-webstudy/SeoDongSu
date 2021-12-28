@@ -1,6 +1,8 @@
-const title = document.querySelector(".hello h1");
+const h1 = document.querySelector(".hello h1");
 
-title.innerText = "hello";
 
-console.log(title);
+function handleTitleClick(){
+    h1.classList.toggle("clicked");
 
+}
+h1.onclick = handleTitleClick;
