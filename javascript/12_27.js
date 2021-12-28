@@ -35,5 +35,5 @@ function Hlink(event){
     alert("Click!");
 }
 
-link.addEventListener("click", Hlink);
+// link.addEventListener("click", Hlink);
 
