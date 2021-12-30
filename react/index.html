@@ -13,9 +13,9 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function App() {
-      const [minutes, setMinutes] = React.useState();
-      const [hours, setHours] = React.useState();
+    function MinutesToHours() {
+      let [minutes, setMinutes] = React.useState();
+      let [hours, setHours] = React.useState();
       const onChange = (event) => {
         setMinutes(event.target.value);
         setHours(event.target.value / 60);
@@ -23,6 +23,10 @@
       const onChange2 = (event) => {
         setHours(event.target.value);
         setMinutes(event.target.value * 60);
+      };
+      const reset = () => {
+        setMinutes(0);
+        setHours(0);
       };
       return (
         <div>
@@ -38,12 +42,69 @@
           <h4>You want convert {minutes}</h4>
           <label htmlfor="hours">Hours</label>
           <input
-            value={hours}
+            value={Math.round(hours)}
             id="hours"
             placeholder="Hours"
             type="number"
             onChange={onChange2}
           />
+          <button onClick={reset}>reset</button>
+        </div>
+      );
+    }
+    function KmToMiles() {
+      let [minutes, setMinutes] = React.useState();
+      let [hours, setHours] = React.useState();
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+        setHours(event.target.value / 1.609);
+      };
+      const onChange2 = (event) => {
+        setHours(event.target.value);
+        setMinutes(event.target.value * 1.609);
+      };
+      const reset = () => {
+        setMinutes(0);
+        setHours(0);
+      };
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <label htmlfor="minutes">Km</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="km"
+            type="number"
+            onChange={onChange}
+          />
+          <h4>You want convert {minutes}</h4>
+          <label htmlfor="hours">Mile</label>
+          <input
+            value={hours}
+            id="hours"
+            placeholder="mile"
+            type="number"
+            onChange={onChange2}
+          />
+          <button onClick={reset}>reset</button>
+        </div>
+      );
+    }
+    function App() {
+      const [index, setIndex] = React.useState(0);
+      const onSelect = (event) => {
+        setIndex(event.target.value);
+      };
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select onChange={onSelect}>
+            <option value="0">Minutes&Hours</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmToMiles /> : null}
         </div>
       );
     }
