@@ -5,7 +5,7 @@ const quotes = [
     },
     {
         quote:"산다는것 그것은 치열한 전투이다.",
-        author:"로망로랑"
+        author:"로망로랑",
     },
     {
         quote:"하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다",
@@ -28,7 +28,7 @@ const quotes = [
 const quote = document.querySelector("#quote span:first-child");
 const author = document.querySelector("#quote span:last-child");
 
-const Todayquote = quotes[Math.round(Math.random()*quotes.length)];
+const Todayquote = quotes[Math.floor(Math.random()*quotes.length)];
 
 quote.innerText = Todayquote.quote;
 author.innerText = Todayquote.author;
