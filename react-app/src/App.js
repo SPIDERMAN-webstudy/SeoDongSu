@@ -1,25 +1,35 @@
-import Button from "./button";
-import styles from "./App.module.css";
 import { useEffect, useState } from "react";
 
-function Hello() {
-  useEffect(() => {
-    console.log("hi :)");
-    return () => {
-      console.log("bye :(");
-    };
-  }, []);
-
-  return <h1>Hello</h1>;
-}
-
 function App() {
-  const [showing, setshowing] = useState(false);
-  const onClick = () => setshowing((prev) => !prev);
+  const [toDo, settoDo] = useState("");
+  const [toDos, settoDos] = useState([]);
+  const onChange = (event) => settoDo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    settoDo("");
+    settoDos((CurrentArray) => [toDo, ...toDos]);
+  };
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      <h1>{toDos}</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          text=""
+          type="text"
+          placeholder="Write here"
+        ></input>
+        <button>Submit</button>
+      </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
