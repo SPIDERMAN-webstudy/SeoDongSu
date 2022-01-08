@@ -16,10 +16,5 @@
     "url": "https://github.com/SPIDERMAN-webstudy/SeoDongSu/issues"
   },
   "homepage": "https://github.com/SPIDERMAN-webstudy/SeoDongSu#readme",
-  "devDependencies": {
-    "eslint": "^8.5.0",
-    "eslint-plugin-functional": "^4.0.2",
-    "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-react": "^7.28.0"
-  }
+  "devDependencies": {}
 }

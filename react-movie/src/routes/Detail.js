@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -16,5 +17,4 @@ function Detail() {
   console.log(movies);
   return <h1>Detail</h1>;
 }
-
 export default Detail;
