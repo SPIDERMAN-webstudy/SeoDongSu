@@ -1,0 +1,10 @@
+.movie {
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+}
+.Title {
+  grid-template-columns: 3fr 1fr;
+}
+.TopRate_Main {
+  grid-template-columns: 2fr 1fr;
+}
