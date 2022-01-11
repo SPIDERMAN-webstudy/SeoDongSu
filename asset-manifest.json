@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SeoDongSu/static/css/main.9d87e72e.css",
-    "main.js": "/SeoDongSu/static/js/main.85a4ee79.js",
+    "main.css": "/SeoDongSu/static/css/main.80e8a0a0.css",
+    "main.js": "/SeoDongSu/static/js/main.6cb0e20c.js",
     "index.html": "/SeoDongSu/index.html",
-    "main.9d87e72e.css.map": "/SeoDongSu/static/css/main.9d87e72e.css.map",
-    "main.85a4ee79.js.map": "/SeoDongSu/static/js/main.85a4ee79.js.map"
+    "main.80e8a0a0.css.map": "/SeoDongSu/static/css/main.80e8a0a0.css.map",
+    "main.6cb0e20c.js.map": "/SeoDongSu/static/js/main.6cb0e20c.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d87e72e.css",
-    "static/js/main.85a4ee79.js"
+    "static/css/main.80e8a0a0.css",
+    "static/js/main.6cb0e20c.js"
   ]
 }
