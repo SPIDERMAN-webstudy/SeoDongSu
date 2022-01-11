@@ -1,11 +1,93 @@
+.title {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  margin: 0%;
+  text-align: center;
+}
+.loading {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: Century Gothic, sans-serif;
+  padding: 35%;
+  font-size: 5rem;
+  color: white;
+}
+
+/* .page {
+  background-color: beige;
+} */
+
 .movie {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 5%;
+  margin: 3%;
 }
-.container {
+/* .container {
   height: 100%;
   display: flex;
   justify-content: center;
+} */
+.add {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+.select {
+  margin-top: 10%;
+  margin-right: 15%;
+  padding-left: 3%;
+  background: #ffefba; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #ffefba);
+  outline: none;
+  float: right;
+  color: #050000;
+}
+.form {
+  position: relative;
+  margin-top: 2%;
+  margin-left: 7%;
+  height: 40px;
+  width: 400px;
+  border: 1px solid black;
+  background: #ffffff;
+}
+.input {
+  font-size: 16px;
+  width: 295px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  float: left;
+}
+.button {
+  width: 80px;
+  height: 100%;
+  border: 0px;
+  background: #ffefba; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #ffefba);
+  outline: none;
+  float: right;
+  color: #050000;
+  /* margin-left: 40%; */
 }
 
 .loader {
@@ -25,13 +107,23 @@
   width: 80%;
   padding-top: 70px;
 }
-.button {
-  margin-left: 40%;
-}
 
-@media screen and (max-width: 1080px) {
-  .movies {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .movie {
+    grid-template-columns: repeat(1, 1fr);
     width: 100%;
+  }
+  /* .select {
+    display: static;
+    margin-right: 5%;
+  } */
+  .add {
+    display: block;
+  }
+  .select {
+    margin-right: 5%;
+    margin-top: 5%;
+    padding: 0%;
+    height: 25px;
   }
 }
