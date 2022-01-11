@@ -39,7 +39,7 @@ function Home() {
   };
   useEffect(() => {
     getMovies();
-  }, [genre, userInput, movies]);
+  }, [genre, userInput]);
   return (
     <div>
       {loading ? (
@@ -94,7 +94,7 @@ function Home() {
           </div>
           <div className={styles.movie}>
             {/* {getMovies} */}
-            {input ? (
+            {userInput ? (
               <h1>검색된 영화가 없습니다.</h1>
             ) : (
               movies.map((movie) => (
