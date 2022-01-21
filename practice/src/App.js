@@ -14,10 +14,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <InputForm onSaveData={SaveDataHandler} />
       {isEditing ? <InputList User={SData} /> : null}
-    </div>
+    </>
   );
 };
 

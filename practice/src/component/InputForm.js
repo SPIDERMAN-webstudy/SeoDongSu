@@ -1,25 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-import ErrorModal from "./ErrorModal";
+import ErrorModal from "../UI/ErrorModal";
 
 const InputForm = (props) => {
-  const [username, setUsername] = useState();
-  const [age, setAge] = useState();
   const [id, setId] = useState(0);
   const [error, seterror] = useState();
+  const InputUsername = useRef();
+  const inputUserage = useRef();
 
-  const UserHandler = (e) => {
-    setUsername(e.target.value);
-  };
-  const AgeHandler = (e) => {
-    setAge(e.target.value);
-  };
   const ChangeHandler = (e) => {
     e.preventDefault();
     setId(Math.random().toString());
     const UserData = {
-      Username: username,
-      UserAge: age,
+      Username: InputUsername.current.value,
+      UserAge: inputUserage.current.value,
       Id: id,
     };
     if (
@@ -31,8 +25,8 @@ const InputForm = (props) => {
         message: "Please enter a valid name and age (non-empty values).",
       });
     }
-    setUsername("");
-    setAge("");
+    InputUsername.current.value = "";
+    inputUserage.current.value = "";
     props.onSaveData(UserData);
   };
   const errorHandler = () => {
@@ -42,8 +36,8 @@ const InputForm = (props) => {
   return (
     <div>
       <form onSubmit={ChangeHandler}>
-        <input onChange={UserHandler}></input>
-        <input onChange={AgeHandler}></input>
+        <input ref={InputUsername}></input>
+        <input ref={inputUserage}></input>
         <button type="submit">Add User</button>
       </form>
       {error && (
