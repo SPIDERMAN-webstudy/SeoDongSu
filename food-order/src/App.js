@@ -2,6 +2,7 @@ import {useState} from 'react';
 import Header from "../src/components/Layout/Header";
 import Meal from "../src/components/Meals/Meal";
 import Cart from "../src/components/Cart/Cart";
+import CartProvider from "./store/CartProvider";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -14,11 +15,11 @@ function App() {
   }
 
   return (
-    <div>
-      {cartIsShown && <Cart />}
-      <Header />
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler}/>}
+      <Header onShowCart={showCartHandler}/>
       <Meal />
-    </div>
+    </CartProvider>
   );
 }
 
